@@ -7,7 +7,9 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-
+import Button from '@material-ui/core/Button';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import {AddItemCradAuth} from "../context/ContextProvider"
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -66,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
   const classes = useStyles();
-
+const {ItemListHandler} = AddItemCradAuth()
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -95,6 +97,7 @@ export default function Navbar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
+          <Button onClick={()=>ItemListHandler(true)}><ShoppingCartIcon/></Button>
         </Toolbar>
       </AppBar>
     </div>

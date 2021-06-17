@@ -7,43 +7,55 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
-const useStyles = makeStyles({
+import { AddItemCradAuth } from '../context/ContextProvider';
+const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth:445,
-    margin:6,
+    width:'-webkit-fill-available',
+    maxWidth: 310,
+    margin: 6,
+
   },
   media: {
     height: '300px',
-    width: '300px',
+    width: '-webkit-fill-available',
+    margin:'auto'
   },
-});
+}));
 
-const ProductList=(props)=> {
+const ProductList = (props) => {
   const classes = useStyles();
+  const { AddHandler } = AddItemCradAuth()
 
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={props.item_img}
-          title={props.img_title}
-        />
+        {
+          props.item_img ? <CardMedia
+            className={classes.media}
+            image={props.item_img}
+            title={props.img_title}
+          />
+            : null}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-          {props.name}
+            {props.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Price: {props.price}
+            Price: {props?.price}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            MRP: {props.mrp}
+            MRP: {props?.mrp}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary"
+          onClick={() => AddHandler({
+            img: props?.item_img,
+            name: props?.name,
+            price: props?.price
+          })}>
+
           Add
         </Button>
         <Button size="small" color="primary">
