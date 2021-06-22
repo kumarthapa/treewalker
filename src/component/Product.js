@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Data from '../Data.json';
-import Navbar from './Navbar';
 import ProductList from './ProductList';
 import AddToCard from './AddToCard';
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,7 +23,6 @@ const Product = () => {
     }, [productData])
     return (
         <>
-            <Navbar />
             <AddToCard />
             <div className={classes.itemsContainer}>
                 {

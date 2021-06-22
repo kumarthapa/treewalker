@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -9,7 +9,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import Button from '@material-ui/core/Button';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import {AddItemCradAuth} from "../context/ContextProvider"
+import {AddItemCradAuth} from "../context/ContextProvider";
+import { useHistory } from 'react-router-dom';
+import { Alert } from "@material-ui/lab";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -68,8 +70,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
   const classes = useStyles();
-const {ItemListHandler} = AddItemCradAuth()
+    const [error,setError]=useState("");
+const {ItemListHandler,currentUser,logout} = AddItemCradAuth()
+
+const history=useHistory()
+    const handleLogout=async()=>{
+   setError(' ');
+   try{
+  await logout();
+  history.push("/login")
+   }catch{
+       setError('Failed To Logout')
+   }
+    }
   return (
+    <>
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
@@ -98,8 +113,12 @@ const {ItemListHandler} = AddItemCradAuth()
             />
           </div>
           <Button onClick={()=>ItemListHandler(true)}><ShoppingCartIcon/></Button>
+          {currentUser?<Button variant="contained" color="primary" onClick={handleLogout}>logout</Button>:null}
         </Toolbar>
       </AppBar>
     </div>
+    <br/>
+    {error?<Alert severity="error">{error}</Alert>:null}
+    </>
   );
 }
