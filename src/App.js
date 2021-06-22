@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React,{useEffect} from 'react'
+import * as UpdateActions from './store/Actions/dataUpdateAction'
+import {useSelector,useDispatch} from 'react-redux'
+const App = () => {
+  const dispatch=useDispatch();
+  const data=useSelector((state)=>state.screenDataReducer)
+  useEffect(()=>{
+  //  props.onUpdateData("")
+  dispatch(UpdateActions.dataUpdate("This is the app to update the name"))
+  },[])
+// {console.log(props.data)}
+const submitHandler=()=>{
+dispatch(UpdateActions.updateName('kumar'))
 }
+  return (
+    <div>
+      <h1>This is screen data</h1>
+      {data.Screendata}
+      <br/>
+      <h1>This is updated Name</h1> &nbsp;&nbsp;&nbsp;
+      {data.name}<br/>
+      <button onClick={submitHandler}>Update</button>
+    </div>
+  )
+}
+// const mapStateToProps = (state)=>{
+//   return{
+//     data:state.screenDataReducer.ScreenData,
+//     newName:state.screenDataReducer.name
+//   }
+  
+// }
+// const mapDispatchToProps = (dispatch)=>{
+//   return {
+//     onUpdateData:(newVal)=>dispatch(UpdateActions.dataUpdate(newVal)),
+//     onUpdateName:(first)=>dispatch(UpdateActions.updateName(first))
+//   }
+// }
+//export default connect(mapStateToProps,mapDispatchToProps)(App)
 
-export default App;
+export default App
