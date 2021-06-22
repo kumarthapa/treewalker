@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/treewalker/static/js/main.ca9aa813.chunk.js",
+    "main.js.map": "/treewalker/static/js/main.ca9aa813.chunk.js.map",
+    "runtime-main.js": "/treewalker/static/js/runtime-main.1bb54a73.js",
+    "runtime-main.js.map": "/treewalker/static/js/runtime-main.1bb54a73.js.map",
+    "static/js/2.d17ae2d6.chunk.js": "/treewalker/static/js/2.d17ae2d6.chunk.js",
+    "static/js/2.d17ae2d6.chunk.js.map": "/treewalker/static/js/2.d17ae2d6.chunk.js.map",
+    "index.html": "/treewalker/index.html",
+    "static/js/2.d17ae2d6.chunk.js.LICENSE.txt": "/treewalker/static/js/2.d17ae2d6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1bb54a73.js",
+    "static/js/2.d17ae2d6.chunk.js",
+    "static/js/main.ca9aa813.chunk.js"
+  ]
+}
