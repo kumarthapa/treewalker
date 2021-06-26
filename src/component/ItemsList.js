@@ -7,7 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { AddItemCradAuth } from '../context/ContextProvider';
 const useStyles = makeStyles((theme) => ({
   root: {
     width:'-webkit-fill-available',
@@ -22,10 +21,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductList = (props) => {
+const ItemsList = (props) => {
   const classes = useStyles();
-  const { AddHandler } = AddItemCradAuth()
-
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -49,13 +46,7 @@ const ProductList = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button variant="contained" color="primary"
-          onClick={() => AddHandler({
-            img: props?.item_img,
-            name: props?.name,
-            price: props?.price
-          })}>
-
+        <Button variant="contained" color="primary">
           Add
         </Button>
         <Button size="small" color="primary">
@@ -65,4 +56,4 @@ const ProductList = (props) => {
     </Card>
   );
 }
-export default ProductList;
+export default ItemsList;

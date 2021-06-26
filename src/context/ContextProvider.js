@@ -1,65 +1,20 @@
 import React, {useContext,useState, useEffect,createContext} from "react"
-import {auth} from "../firebase"
-const NewsContext = createContext();
+const SearchContext = createContext();
 
-export const AddItemCradAuth = () => {
-  return useContext(NewsContext);
+const SearchAuth = () => {
+  return useContext(SearchContext);
 };
-
+export default SearchAuth
 export const AddItemProvider = ({ children }) => {
-  const [currentUser,setCurrentUser]=useState()
-  const [cardData, setCardData] = useState();
-  const [isopen, setIsOpen] = useState(false);
-  const [istrue, setIstrue] = useState(false);
-
-  const ItemListHandler = (result) => {
-    setIsOpen(result)
-  }
-  const AddHandler = (actiondata) => {
-
-    setCardData(actiondata)
-    setIstrue(true)
-  }
-
-  const signup=(email,password)=>{
-    return auth.createUserWithEmailAndPassword(email,password).then(res=>{
-        console.log(res)
-    })
+  const [items,setItems] = useState()
+  const ItemSearchHandl = (searchitem)=>{
+    setItems(searchitem)
 }
-
-const login=(email,password) =>{
-    return auth.signInWithEmailAndPassword(email,password).then(res=>{
-        console.log(res)
-    })
-}
-const logout=()=>{
-    return auth.signOut()
-}
-const forgetPassword=(email)=>{
-    return auth.sendPasswordResetEmail(email).then(res=>{
-        console.log(res)
-    })
-}
-useEffect(()=>{
-  const  unsubscriber=auth.onAuthStateChanged(user=>{
-      setCurrentUser(user)
-  })
-
-  return unsubscriber
-},[])
 
 
   const value = {
-    ItemListHandler,
-    isopen,
-    AddHandler,
-    cardData,
-    istrue,
-    signup,
-    login,
-    currentUser,
-    logout,
-    forgetPassword,
+    ItemSearchHandl,
+    items,
   };
-  return <NewsContext.Provider value={value}>{children}</NewsContext.Provider>;
+  return <SearchContext.Provider value={value}>{children}</SearchContext.Provider>;
 };
