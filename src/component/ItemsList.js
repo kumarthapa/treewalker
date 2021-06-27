@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
   root: {
-    width:'-webkit-fill-available',
+    width: '-webkit-fill-available',
     maxWidth: 310,
     margin: 6,
 
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: '300px',
     width: '-webkit-fill-available',
-    margin:'auto'
+    margin: 'auto'
   },
 }));
 

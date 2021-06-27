@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React from 'react';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     searchIcon: {
+        cursor: 'pointer',
         padding: theme.spacing(0, 2),
         height: '100%',
         position: 'absolute',
@@ -58,12 +59,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchCompo() {
     const classes = useStyles()
-    const {ItemSearchHandl,items} = SearchAuth()
+    const { ItemSearchHandl } = SearchAuth()
 
     return (
         <div className={classes.root}>
-           <div className={classes.search}>
-                <div className={classes.searchIcon}>
+            <div className={classes.search}>
+                <div className={classes.searchIcon} >
                     <SearchIcon />
                 </div>
                 <InputBase
@@ -73,7 +74,7 @@ export default function SearchCompo() {
                         input: classes.inputInput,
                     }}
                     inputProps={{ 'aria-label': 'search' }}
-                    onChange={(e)=>ItemSearchHandl(e.target.value)}
+                    onChange={(e) => ItemSearchHandl(e.target.value)}
                 />
             </div>
         </div>
