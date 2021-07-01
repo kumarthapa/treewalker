@@ -1,16 +1,22 @@
 import React from 'react'
-import Product from './component/Product';
-import {AddItemProvider} from "./context/ContextProvider"
-import {HashRouter as Router, Switch, Route} from 'react-router-dom';
+import Messenger from './components/Messenger'
+import {ChatProvider} from './context/MessageProvider'
+import PrivateRoute from './components/PrivateRoute'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import {BrowserRouter as Router, Switch,Route} from "react-router-dom"
+//import Loader from "./components/Loader"
 function App() {
   return (
    <>
    <Router>
-     <AddItemProvider>
-       <Switch>
-       <Route exact path="/" component={Product} />
-       </Switch>
-     </AddItemProvider>
+   <ChatProvider>
+     <Navbar/>
+   <Switch>
+   <PrivateRoute path="/messenger" component={Messenger}/>
+   <Route path="/" component={Home}/>
+   </Switch>
+   </ChatProvider>
    </Router>
    </>
   );
