@@ -7,9 +7,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Toolbar from '@material-ui/core/Toolbar';
 const useStyles = makeStyles((theme) => ({
   messageContainer: {
-    // display: 'flex',
-    // flexDirection: 'column',
-    // justifyContent: 'space-between',
     width: '40%',
     //height: '600px',
     backgroundColor: 'rgba(244, 244, 244, 0.78)',
@@ -35,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
     padding: '6px',
     fontFamily: 'arial',
     borderRadius: '5px',
+    '& > * + *': {
+      marginTop: theme.spacing(0),
+      marginLeft: theme.spacing(8),
+    },
   },
   textBox2: {
     backgroundColor: '#efefef',
@@ -44,8 +45,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 300,
     margin: '0 20px',
     '& > * + *': {
-      marginTop: theme.spacing(7),
-      marginLeft: theme.spacing(0),
+      marginTop: theme.spacing(0),
+      marginLeft: theme.spacing(8),
     },
    float:'right'
   }

@@ -12,7 +12,7 @@ const Login = () => {
 
     return (
         <div>
-            <h1>Welcome user Please login with google ID</h1>
+            <h1 style={{fontFamily: 'arial' }}>Welcome user Please signin with google ID</h1>
             <Button
         variant="contained"
         color="secondary"
