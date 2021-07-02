@@ -7,16 +7,17 @@ import Avatar from '@material-ui/core/Avatar';
 import Toolbar from '@material-ui/core/Toolbar';
 const useStyles = makeStyles((theme) => ({
   messageContainer: {
-    width: '40%',
+    width: '70%',
     //height: '600px',
-    backgroundColor: 'rgba(244, 244, 244, 0.78)',
+    //backgroundColor: 'rgba(244, 244, 244, 0.78)',
     borderRadius: '6px 6px 0px 0px',
     marginTop: '20px',
     marginLeft:'auto',
     marginRight:'auto',
-    padding: '0px',
+   paddingTop:'10px',
     [theme.breakpoints.down("sm")]: {
       width: '90%',
+      backgroundColor: '#fff',
     },
   },
   root: {
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(0),
       marginLeft: theme.spacing(8),
     },
+   
   },
   textBox1: {
     backgroundColor: 'gray',
@@ -36,6 +38,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(0),
       marginLeft: theme.spacing(8),
     },
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: 200,
+    },
   },
   textBox2: {
     backgroundColor: '#efefef',
@@ -43,12 +48,17 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'arial',
     borderRadius: '5px',
     maxWidth: 300,
-    margin: '0 20px',
     '& > * + *': {
       marginTop: theme.spacing(0),
-      marginLeft: theme.spacing(8),
     },
-   float:'right'
+    
+  marginRight:'0px',
+  marginLeft:'25rem',
+  marginTop:'5px',
+  [theme.breakpoints.down("sm")]: {
+    marginLeft:'10rem',
+    maxWidth: 200,
+  },
   }
 }));
 
