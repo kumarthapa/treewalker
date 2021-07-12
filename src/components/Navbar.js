@@ -6,8 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import {useHistory} from 'react-router-dom'
-import {LoginAuth} from '../context/MessageProvider'
 import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,17 +22,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
 const classes = useStyles();
-const {userData, logout} = LoginAuth()
-const history=useHistory();
-
-
-const LogoutHandler = () =>{
-  //console.log("navbar pic",userData)
-  if(userData){
-    logout()
-    history.push("/")
-  }
-}
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -45,8 +32,8 @@ const LogoutHandler = () =>{
           <Typography variant="h6" className={classes.title}>
             Messenger
           </Typography>
-          <Avatar alt="profile-pic" src={userData?.photoURL} />
-          <Button color="inherit" onClick={LogoutHandler}>Logout</Button>
+          <Avatar alt="profile-pic"/>
+          <Button color="inherit">login</Button>
         </Toolbar>
       </AppBar>
     </div>
